@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Bovinus App{% endblock %}
+
+{% block content %}
+    <div class="info-container">
+        <img class="imagem" src="{{ image_url }}" alt="Gráfico Arroba do Boi" style="max-width: 420px;">
+        <table class="info-table">
+            <tr><td>Total Animais:</td><td>{{ formatar_valor(totalizadores.total_animais) }}</td></tr>
+            <tr><td>Total Arroba:</td><td>{{ formatar_valor(totalizadores.total_arroba) }}</td></tr>
+            <tr><td>Total Avaliação:</td><td>R$ {{ formatar_valor(totalizadores.total_avaliacao) }}</td></tr>
+            <tr><td>Machos:</td><td>{{ formatar_valor(totalizadores.num_machos) }}</td></tr>
+            <tr><td>Fêmeas:</td><td>{{ formatar_valor(totalizadores.num_femeas) }}</td></tr>
+            <tr><td>Prenhas:</td><td>{{ formatar_valor(totalizadores.num_prenhas) }}</td></tr>
+            <tr><td>Bezerros:</td><td>{{ formatar_valor(totalizadores.num_bezerros) }}</td></tr>
+            <tr><td>Novilhas:</td><td>{{ formatar_valor(totalizadores.num_novilhos) }}</td></tr>
+            <tr><td>Garrotes:</td><td>{{ formatar_valor(totalizadores.num_garrotes) }}</td></tr>
+            <tr><td>Bois/Vacas:</td><td>{{ formatar_valor(totalizadores.num_boi) }}</td></tr>
+        </table>        
+    </div>
+{% endblock %}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Animal</title>
+</head>
+<body>
+    <div class="animal-info">
+        <img id="animal-image" src="{{ url_for('static', filename='tela-inicial-app.png') }}" alt="Imagem do Animal">
+        <table>
+            <tr><td>Registro:</td><td id="registro">000.001</td></tr>
+            <tr><td>Nome:</td><td id="nome">APOLO</td></tr>
+            <tr><td>Pai:</td><td id="pai">ZEUS</td></tr>
+            <tr><td>Mãe:</td><td id="mae">ATHENA</td></tr>
+            <tr><td>Raça:</td><td id="raca">Nelore</td></tr>
+            <tr><td>Nascimento:</td><td id="nascimento">10/01/2023</td></tr>
+            <tr><td>Sexo:</td><td id="sexo">Macho</td></tr>
+			<tr><td>Arroba(s):</td><td id="arrobas">0</td></tr>
+			<tr><td>Valor:</td><td id="valor">R$ 1.000.000,00</td></tr>
+			<tr><td>Barriga(s):</td><td id="barrigas">0</td></tr>
+        </table>
+        <div class="buttons">
+            <button>Enxertos</button>
+            <button>Abate</button>
+            <button>Promoção</button>
+            <button>Nascimento</button>
+        </div>
+        <div class="search-section">
+            <input type="text" id="search-input" placeholder="Pesquisar" onkeypress="handleKeyPress(event)">
+            <button onclick="startVoiceSearch()">🎤</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para detectar pressionamento de tecla Enter e enviar a consulta
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                const query = document.getElementById('search-input').value;
+                fetchAnimalData(query);
+            }
+        }
+
+        // Função para iniciar a pesquisa por voz
+        function startVoiceSearch() {
+            if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+                const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = 'pt-BR';
+                recognition.start();
+
+                recognition.onresult = function(event) {
+                    const speechToText = event.results[0][0].transcript;
+                    document.getElementById('search-input').value = speechToText;
+                    fetchAnimalData(speechToText); // Envia a consulta automaticamente após a fala
+                };
+
+                recognition.onerror = function(event) {
+                    console.error('Erro no reconhecimento de voz: ', event.error);
+                };
+            } else {
+                alert('Seu navegador não suporta reconhecimento de voz.');
+            }
+        }
+
+        // Função para buscar dados do animal e atualizar a página
+        function fetchAnimalData(query) {
+            fetch(`/consulta-animal?query=${encodeURIComponent(query)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao buscar dados do animal');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        // Atualize os dados na página com a resposta recebida
+                        document.getElementById('registro').textContent = data.registro || 'N/A';
+                        document.getElementById('nome').textContent = data.nome || 'N/A';
+                        document.getElementById('pai').textContent = data.pai || 'N/A';
+                        document.getElementById('mae').textContent = data.mae || 'N/A';
+                        document.getElementById('raca').textContent = data.raca || 'N/A';
+                        document.getElementById('nascimento').textContent = data.nascimento || 'N/A';
+                        document.getElementById('arrobas').textContent = isNaN(data.arrobas) ? '0' : data.arrobas;
+                        document.getElementById('valor').textContent = `R$ ${isNaN(data.valor) ? '0,00' : data.valor.toFixed(2).replace('.', ',')}`;
+                        document.getElementById('sexo').textContent = data.sexo || 'N/A';
+                        document.getElementById('barrigas').textContent = isNaN(data.barrigas) ? '0' : data.barrigas;
+                        document.getElementById('animal-image').src = data.imagem || '/static/imagem_animal1.png';
+                    }
+                })
+                .catch(error => console.error('Erro ao buscar dados do animal:', error));
+        }
+
+    </script>
+</body>
+</html>

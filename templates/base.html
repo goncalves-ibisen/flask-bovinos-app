@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>{% block title %}Bovinus App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-content">
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="content-buttons">
+            <a href="/" class="buttons">Enxertos</a>
+            <a href="/" class="buttons">Abate</a>
+            <a href="/" class="buttons">Promoção</a>
+            <a href="/" class="buttons">Nascimento</a>
+        </div>
+    </div>
+
+    <!-- Footer Global -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="search-section">
+                <!-- <button class="button" type="submit"><a  href="/">Home</a></button> -->
+                <!--  <button class="button-buscar" type="submit"><a href="/">Home</a></button> -->
+                <a class="link-home" href="/">Home</a> 
+ 
+                <div class="pesquisar-input">
+                    <form id="search-form" action="/consulta-animal" method="get"></button>
+                        <input type="text" name="query" id="search-input" placeholder="Pesquisar">
+                        <button class="button-buscar" type="submit">Buscar</button>
+                    </form>
+                    <button class="mic-button" onclick="startVoiceSearch()"><img class="mic-imagem" src="static/imagens/microfone.png"></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

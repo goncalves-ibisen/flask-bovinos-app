@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Bovinus App{% endblock %}
+
+{% block content %}
+    <div class="info-container">
+        <div class="grafico-container">
+            <img src="{{ url_for('static', filename='grafico_machos_femeas.png') }}" alt="Gráfico de Machos e Fêmeas">
+        </div>
+        <table class="info-table">
+            <tr><td>Machos:</td><td>{{ totalizadores.num_machos }}</td></tr>
+            <tr><td>Fêmeas:</td><td>{{ totalizadores.num_femeas }}</td></tr>
+        </table>
+    </div>
+{% endblock %}

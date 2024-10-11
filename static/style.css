@@ -1,0 +1,331 @@
+/* style.css
+
+/* Reset básico para garantir consistência */
+/* body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 420px !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: absolute;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 420px !important;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    margin: 0 auto;
+}
+
+.footer {
+    width: 100%;
+    max-width: 420px !important;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.content-buttons{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+
+}
+
+.search-section{
+    width: 100%;
+    display: flex;
+    padding: 0 10px;
+}
+
+.home-button {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+}
+
+.search-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-input {
+    padding: 8px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+button[type="submit"] {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.buttons {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.buttons:hover {
+    background-color: #0056b3;
+}
+
+.info-table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.info-table, th, td {
+    border: 2px solid #ddd;
+    padding: 8px;
+}
+.info-table th, .info-table td {
+    text-align: left;
+} */
+
+/* Reset básico para garantir consistência */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    background-color: #f0f0f0;
+    font-family: Arial 12px;
+    text-align: center;
+}
+
+/* Contêiner principal que centraliza o conteúdo */
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 420px !important;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    margin: auto; /* Centraliza horizontalmente e verticalmente */
+}
+
+/* Estilo do footer para ocupar toda a largura da tela */
+.footer {
+    width: 100%;
+    max-width: 420px !important;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.content-buttons{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+}
+
+.search-section{
+    width: 100%;
+    display: flex;
+    padding: 0 10px;
+}
+
+/* Estilo do botão Home */
+.home-button {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+
+/* Estilo da barra de pesquisa e botão de voz */
+.search-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#search-input {
+    flex: 0 0 90%; /* Ocupa 80% da largura disponível */
+    padding: 8px;
+    margin-right: 5px; /* Espaço entre o campo de texto e o próximo elemento */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Inclui o padding e a borda na largura total */
+}
+
+button[type="submit"] {
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-buscar {
+    flex: 0 0 20%; /* Ocupa 20% da largura disponível à direita */
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-buscar:hover {
+    background-color: #218838;
+}
+
+.link-home {
+    flex: 0 0 10%; /* Ocupa 20% da largura disponível à direita */
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.pesquisar-input {
+    flex: 0 0 90%; /* Ocupa 90% à direita */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mic-button{
+    flex: 0 0 20%; /* Ocupa 20% à direita */
+    margin-right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.buttons {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.buttons:hover {
+    background-color: #0056b3;
+}
+
+.mic-imagem{
+    width: 60%;
+    max-width: 60px;
+    border: none;
+    background-color: transparent !important;
+}
+
+.imagem {
+    width: 100%;
+    max-width: 420px !important;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.info-table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.info-table, th, td {
+    border: 2px solid #ddd;
+    padding: 8px;
+}
+
+.info-table th, .info-table td {
+    text-align: left;
+}
+
+a:visited {
+    color: #fff; /* Cor para links visitados */
+    text-decoration: none !important;
+}

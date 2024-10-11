@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Info Animal{% endblock %}
+
+{% block content %}
+    <div class="animal-info-container">
+        {% if animal %}
+            <h2>Informações {{ animal['nome'] }}:</h2>
+            <img class="imagem" id="animal-image" src="{{ url_for('static', filename='imagens/' ~ animal['imagem']) }}" alt="Imagem do Animal: {{ animal['nome'] }}">
+            <table class="info-table">
+                <tr><td>Registro:</td><td>{{ animal['registro'] }}</td></tr>
+                <tr><td>Nome:</td><td>{{ animal['nome'] }}</td></tr>
+                <tr><td>Pai:</td><td>{{ animal['pai'] }}</td></tr>
+                <tr><td>Mãe:</td><td>{{ animal['mae'] }}</td></tr>
+                <tr><td>Raça:</td><td>{{ animal['raca'] }}</td></tr>
+                <tr><td>Nascimento:</td><td>{{ animal['nascimento'] }}</td></tr>
+                <tr><td>Valor:</td><td id="valor">{{ animal['valor'] }}</td></tr>
+                <tr><td>Sexo:</td><td>{{ animal['sexo'] }}</td></tr>
+            </table>
+        {% else %}
+            <h2>{{ error }}</h2>
+        {% endif %}
+    </div>
+{% endblock %}
